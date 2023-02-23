@@ -1,0 +1,16 @@
+{
+    "jupyter.jupyterServerType": "local",
+    "terminal.integrated.inheritEnv": false,
+    "python.defaultInterpreterPath": "/opt/anaconda3/bin/python",
+    "jupyter.askForKernelRestart": false,
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "[python]": {},
+    "git.confirmSync": false,
+    "files.exclude": {
+        "**/.gitignore": true
+    },
+    "git.enableSmartCommit": true,
+    "git.autoRepositoryDetection": false,
+    "git.autofetch": true
+}
