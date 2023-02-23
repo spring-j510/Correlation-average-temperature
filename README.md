@@ -9,7 +9,7 @@ As a consideration, it is considered that accurate predictions were made without
 ## About learning
 For the purpose of predicting the average temperature in Miyazaki, data from eight regions were trained: the eight regions are Sapporo, Sendai, Tokyo, Nagoya, Osaka, Hiroshima, Fukuoka and Okinawa. The objective variable is the average temperature. The explanatory variables are mean temperature (°C), mean daily maximum temperature (°C), mean daily minimum temperature (°C), total precipitation (mm), total precipitation (mm), maximum daily precipitation (mm), sunshine hours (hours), deepest snow cover (cm), deepest snow cover (cm), total snowfall (cm), mean wind speed (m/s), mean vapour pressure (hPa), average Average humidity (%), Average cloud cover (10-minute ratio).The parameters for the random forest were n_estimators = 15,random_state = 42,n_jobs = 1,min_samples_split = 10,max_depth = 10.The evaluation methods used are RSME and R^2.
 
-## Learning procedure
+## Procedure
 Download data from the JMA. Put the data to be used as training in the directory [Train_data](Train_data). Put the data to be tested in the [Test_data](Test_data) directory. As you will be referring to these directories from the programme, it is advisable to download the data with the same objective and explanatory variables.
 
 
