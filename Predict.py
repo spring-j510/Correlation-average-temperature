@@ -67,7 +67,13 @@ test_x = df_test.drop('平均気温(℃)', axis=1)
 test_y = df_test['平均気温(℃)']
 
 
-random_forest = RFR(max_depth=30, n_estimators=10, random_state=42)
+random_forest = RFR(
+    n_estimators = 15,
+    random_state = 42,
+    n_jobs = 1,
+    min_samples_split = 10,
+    max_depth = 10,
+)
 random_forest.fit(train_x, train_y)
 
 from sklearn.metrics import mean_squared_error
