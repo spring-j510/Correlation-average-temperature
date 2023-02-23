@@ -16,7 +16,6 @@ def convert(table):
 
     return table
 
-
 Train_files = (glob.glob('Train_data/*.csv'))
 Test_file = (glob.glob('Test_data/*.csv'))
 print(Train_files,Test_file)
@@ -45,7 +44,6 @@ for i in range(len(Train_files)):
         df_train_marge = pd.concat([df_train_marge, df_train])
 df_train_marge = df_train_marge.replace([""], [0])
 
-
 test_table = []
 
 filename = Test_file[0]
@@ -57,14 +55,11 @@ with open(filename,'r',encoding='cp932') as f:
 column = test_table[5]
 test_table = convert(test_table)
 
-
 df_test = pd.DataFrame(test_table,columns=column)
 Horizontal_axis = df_test["年月"]
 df_test = df_test.drop(drop_list,axis=1)
 
 df_test = df_test.replace([""], [0])
-df_test
-
 
 train_x = df_train_marge.drop('平均気温(℃)', axis=1)
 train_y = df_train_marge['平均気温(℃)']
@@ -78,26 +73,21 @@ random_forest.fit(train_x, train_y)
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import r2_score
 
-
-# 予測値(Train）
+# Train
 y_train_pred = random_forest.predict(train_x)
 
-# 予測値（Test)
+# Test
 y_test_pred = random_forest.predict(test_x)
 
-
 print('RMSE Train: %.2f, Test: %.2f' % (
-        mean_squared_error(train_y, y_train_pred, squared=False), # 学習
-        mean_squared_error(test_y, y_test_pred, squared=False)    # テスト
+        mean_squared_error(train_y, y_train_pred, squared=False), # train
+        mean_squared_error(test_y, y_test_pred, squared=False)    # test
         ))
 
-
 print('R^2 Train: %.2f, Test: %.2f' % (
-        r2_score(train_y, y_train_pred), # 学習
-        r2_score(test_y, y_test_pred)    # テスト
+        r2_score(train_y, y_train_pred), # train
+        r2_score(test_y, y_test_pred)    # test
     ))
-
-
 
 test_y_list = []
 for i in test_y:
@@ -105,14 +95,10 @@ for i in test_y:
     test_y_list.append(float_i)
 
 test_y = np.array(test_y_list)
-test_y
-
 
 x = (Horizontal_axis)
 y1 = test_y
 y2 = y_test_pred
-
-
 
 plt.figure(figsize=(16,9))
 plt.plot(x,y1, marker="o", color = "red", linestyle = "--", label="Measured_value")
